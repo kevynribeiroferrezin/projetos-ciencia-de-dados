@@ -34,3 +34,6 @@ Manipulação de Dados: Pandas / Numpy
 Visualização: Altair / Plotly
 
 Versionamento: Git
+
+Acesse o Dashboard Aqui:
+
