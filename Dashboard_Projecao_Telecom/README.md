@@ -35,5 +35,5 @@ Visualização: Altair / Plotly
 
 Versionamento: Git
 
-Acesse o Dashboard Aqui:
+Acesse o Dashboard Aqui: https://projetos-ciencia-de-dados-dashboard-projecao-telecom.streamlit.app/
 
