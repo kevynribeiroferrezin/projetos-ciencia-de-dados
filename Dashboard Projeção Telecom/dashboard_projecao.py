@@ -10,20 +10,27 @@ import numpy as np
 st.set_page_config(page_title="Hub de Operações", layout="wide")
 
 # --- CONFIGURAÇÃO DE PASTAS ---
-PASTA_RAIZ = r"C:\Users\Usuario\Documents\praticas\projetos-ciencia-de-dados\Dashboard Projeção Telecom"
+PASTA_RAIZ = os.path.dirname(os.path.abspath(__file__))
 
 def localizar_arquivo_recente(prefixo):
-    """Busca o arquivo mais recente que começa com o prefixo dado na PASTA_RAIZ"""
+    """Busca o arquivo mais recente que começa com o prefixo na pasta do projeto"""
+    # Criamos o caminho de busca usando a PASTA_RAIZ dinâmica
     padrao = os.path.join(PASTA_RAIZ, f"{prefixo}*.csv")
     arquivos = glob.glob(padrao)
     
     if not arquivos:
+        # Fallback: se não achar com o caminho absoluto da pasta raiz, 
+        # tenta buscar na pasta de execução atual (comum em servidores Cloud)
+        arquivos = glob.glob(f"{prefixo}*.csv")
+        
+    if not arquivos:
         return None
     
-    # Retorna o caminho completo do arquivo mais recente
+    # Retorna o caminho do arquivo mais recente
     return max(arquivos, key=os.path.getmtime)
 
 # --- DEFINIÇÃO DAS VARIÁVEIS DE BASE ---
+# O código agora é agnóstico: não importa se é Windows ou Linux
 BASE_DADOS_ENT = localizar_arquivo_recente("salesforce_entrantes_hoje_2026")
 BASE_DADOS_FIN = localizar_arquivo_recente("salesforce_finalizados_2026")
 BASE_DADOS_CAN = localizar_arquivo_recente("salesforce_cancelados_hoje_2026")
