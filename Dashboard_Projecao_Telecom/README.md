@@ -35,5 +35,7 @@ Visualização: Altair / Plotly
 
 Versionamento: Git
 
+OBS: Todos os dados apresentados não condizem com a realidade de nenhuma empresa e nem é contra as normas LGPD, os mesmos são gerados através de um código em Python.
+
 Acesse o Dashboard Aqui: https://projetos-ciencia-de-dados-dashboard-projecao-telecom.streamlit.app/
 
